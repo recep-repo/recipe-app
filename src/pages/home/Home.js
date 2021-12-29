@@ -13,16 +13,16 @@ const API_KEY = "415004370ffc68d74d5a40febdf844f9"
 const Home = () => {
     const [query, setQuery] = useState("pizza")
     const [recipes, setRecipes] = useState()
-    const [meal, setMeal] = useState(mealTypes[0].toLocaleLowerCase())
+    const [meal, setMeal] = useState(mealTypes[0].toLowerCase())
 
     const url=`https://api.edamam.com/search?q=${query}&app_id=${API_ID}&app_key=${API_KEY}&mealType=${meal}`;
 
     const getData = async () =>{
         if(query !== ""){
             const result = await axios.get(url)
-            console.log(result.data.hits);
             if(!result.data.more){
                 alert("no food such a this name")
+                setQuery("")
             }
             setRecipes(result.data.hits)
             setQuery("")

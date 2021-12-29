@@ -14,7 +14,7 @@ const Form = ({setQuery, query, getData, mealTypes, setMeal, meal}) => {
             type="text"
             placeholder='Search'
             onChange={(e) => setQuery(e.target.value)}/>
-            <Button onClick={getData}>Search</Button>
+            <Button>Search</Button>
             <Select
             name='mealTypes'
             id='mealTypes'
